@@ -1,4 +1,4 @@
-name := "external-command-executor"
+name := "java-code-instrumentation"
 
 version := "0.1"
 
@@ -14,5 +14,7 @@ libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "3.0.8" % "test",
   "org.json" % "json" % "20180813",
   "com.google.guava" % "guava" % "12.0",
-  "org.eclipse.jdt" % "org.eclipse.jdt.core" % "3.7.1"
+  "org.eclipse.jdt" % "org.eclipse.jdt.core" % "3.10.0",
+  "org.apache.commons" % "commons-lang3" % "3.9",
+  "commons-io" % "commons-io" % "2.5"
 )

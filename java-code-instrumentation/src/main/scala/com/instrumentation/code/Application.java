@@ -14,7 +14,12 @@ public class Application {
 
             a = a + 1;
             b = b - 1;
+            add(a, b);
         }
+    }
+
+    public static int add(int a, int b) {
+        return a + b;
     }
 
 }

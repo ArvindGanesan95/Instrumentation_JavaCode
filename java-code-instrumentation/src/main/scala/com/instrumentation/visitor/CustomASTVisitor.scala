@@ -63,14 +63,9 @@ class CustomASTVisitor(compilationUnit: CompilationUnit, astRewrite: ASTRewrite,
         val methodInvokedLine = compilationUnit.getLineNumber(node.getStartPosition)
         val blockStartLine = compilationUnit.getLineNumber(block.getStartPosition)
 
-        println("Block start line : " + blockStartLine)
-        println("Method invoked line : " + methodInvokedLine)
-
         listRewrite.insertAt(methodInvocation, methodInvokedLine - blockStartLine - 2, null)
       }
-
     }
-
     true
   }
 

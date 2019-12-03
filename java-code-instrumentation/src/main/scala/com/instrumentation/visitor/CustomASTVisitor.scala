@@ -63,6 +63,9 @@ class CustomASTVisitor(compilationUnit: CompilationUnit, astRewrite: ASTRewrite,
         val methodInvokedLine = compilationUnit.getLineNumber(node.getStartPosition)
         val blockStartLine = compilationUnit.getLineNumber(block.getStartPosition)
 
+        println("Block start line : " + blockStartLine)
+        println("Method invoked line : " + methodInvokedLine)
+
         listRewrite.insertAt(methodInvocation, methodInvokedLine - blockStartLine - 2, null)
       }
 
@@ -125,7 +128,7 @@ class CustomASTVisitor(compilationUnit: CompilationUnit, astRewrite: ASTRewrite,
 
     }
 
-    super.visit(node)
+    true
   }
 
 
@@ -144,7 +147,7 @@ class CustomASTVisitor(compilationUnit: CompilationUnit, astRewrite: ASTRewrite,
       methodInvocation.setName(ast.newSimpleName("info"))
 
       val stringLiteral: StringLiteral = ast.newStringLiteral
-      stringLiteral.setLiteralValue("Logging a for statement")
+      stringLiteral.setLiteralValue("Logging a while statement")
 
       methodInvocation.arguments.asScala.asInstanceOf[mutable.Buffer[AnyRef]].+=(stringLiteral.asInstanceOf[StringLiteral])
 
@@ -152,7 +155,7 @@ class CustomASTVisitor(compilationUnit: CompilationUnit, astRewrite: ASTRewrite,
 
     }
 
-    super.visit(node)
+    true
   }
 
   override def visit(node: DoStatement): Boolean = {
@@ -170,7 +173,7 @@ class CustomASTVisitor(compilationUnit: CompilationUnit, astRewrite: ASTRewrite,
       methodInvocation.setName(ast.newSimpleName("info"))
 
       val stringLiteral: StringLiteral = ast.newStringLiteral
-      stringLiteral.setLiteralValue("Logging a for statement")
+      stringLiteral.setLiteralValue("Logging a do statement")
 
       methodInvocation.arguments.asScala.asInstanceOf[mutable.Buffer[AnyRef]].+=(stringLiteral.asInstanceOf[StringLiteral])
 
@@ -178,7 +181,7 @@ class CustomASTVisitor(compilationUnit: CompilationUnit, astRewrite: ASTRewrite,
 
     }
 
-    super.visit(node)
+    true
   }
 
 

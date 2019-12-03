@@ -26,6 +26,13 @@ public class Application {
             b = b - 1;
             add(a, b);
         }
+
+        int m = 0;
+
+        while (m < e) {
+            m++;
+            add(a, b);
+        }
     }
 
     public static int add(int a, int b) {

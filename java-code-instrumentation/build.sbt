@@ -16,5 +16,9 @@ libraryDependencies ++= Seq(
   "com.google.guava" % "guava" % "12.0",
   "org.eclipse.jdt" % "org.eclipse.jdt.core" % "3.10.0",
   "org.apache.commons" % "commons-lang3" % "3.9",
-  "commons-io" % "commons-io" % "2.5"
+  "commons-io" % "commons-io" % "2.5",
+  "org.apache.logging.log4j" % "log4j-api" % "2.12.1",
+  "org.apache.logging.log4j" % "log4j-core" % "2.12.1",
+  "org.apache.logging.log4j" % "log4j-slf4j-impl" % "2.12.1"
+
 )

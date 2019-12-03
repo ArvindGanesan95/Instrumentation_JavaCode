@@ -5,9 +5,11 @@ import java.io.{File, FileInputStream}
 import com.instrumentation.visitor.CustomASTVisitor
 import com.typesafe.scalalogging.LazyLogging
 import org.apache.commons.io.IOUtils
-import org.eclipse.jdt.core.dom.{AST, ASTParser, CompilationUnit}
+import org.eclipse.jdt.core.dom._
+import org.eclipse.jdt.core.dom.rewrite.ASTRewrite
+import org.eclipse.jface.text.Document
 
-object JavaSourceCodeInstrumentor extends LazyLogging {
+object InstrumentationDriver extends LazyLogging {
 
   def main(args: Array[String]): Unit = {
 
@@ -15,14 +17,14 @@ object JavaSourceCodeInstrumentor extends LazyLogging {
       .toString(new FileInputStream(new File("./java-code-instrumentation/src/main/scala/com/instrumentation/code/Application.java")), "UTF-8")
 
     val compilationUnit = parse(sourceString.toCharArray)
-    val customASTVisitor = new CustomASTVisitor
+    val customASTVisitor = new CustomASTVisitor(compilationUnit, ASTRewrite.create(compilationUnit.getAST), true)
+    val document = new Document(sourceString)
 
     compilationUnit.accept(customASTVisitor)
+    val edits = customASTVisitor.getASTRewrite.rewriteAST(document, null)
+    edits.apply(document)
 
-    customASTVisitor.getMethodInvocationList.foreach {
-      x =>
-        logger.info("Method invocation : {}", x.getName.getIdentifier)
-    }
+    println(document.get)
   }
 
   private def parse(sourceString: Array[Char]) = {

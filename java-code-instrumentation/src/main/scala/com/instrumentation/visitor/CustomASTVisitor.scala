@@ -31,7 +31,10 @@ class CustomASTVisitor(compilationUnit: CompilationUnit, astRewrite: ASTRewrite,
 
       methodInvocation.arguments.asScala.asInstanceOf[mutable.Buffer[AnyRef]].+=(stringLiteral.asInstanceOf[StringLiteral])
 
-      listRewrite.insertFirst(methodInvocation, null)
+      val statement = node.getAST.newExpressionStatement(methodInvocation)
+
+
+      listRewrite.insertFirst(statement, null)
     }
 
     super.visit(node)
@@ -63,7 +66,10 @@ class CustomASTVisitor(compilationUnit: CompilationUnit, astRewrite: ASTRewrite,
         val methodInvokedLine = compilationUnit.getLineNumber(node.getStartPosition)
         val blockStartLine = compilationUnit.getLineNumber(block.getStartPosition)
 
-        listRewrite.insertAt(methodInvocation, methodInvokedLine - blockStartLine - 2, null)
+        val statement = node.getAST.newExpressionStatement(methodInvocation)
+
+
+        listRewrite.insertAt(statement, methodInvokedLine - blockStartLine - 2, null)
       }
     }
     true
@@ -92,7 +98,10 @@ class CustomASTVisitor(compilationUnit: CompilationUnit, astRewrite: ASTRewrite,
       methodInvocation.arguments.asScala.asInstanceOf[mutable.Buffer[AnyRef]].+=(stringLiteral.asInstanceOf[StringLiteral])
       methodInvocation.arguments.asScala.asInstanceOf[mutable.Buffer[AnyRef]].+=(simpleName.asInstanceOf[SimpleName])
 
-      listRewrite.insertAfter(methodInvocation, node, null)
+      val statement = node.getAST.newExpressionStatement(methodInvocation)
+
+
+      listRewrite.insertAfter(statement, node, null)
 
     }
 
@@ -119,7 +128,11 @@ class CustomASTVisitor(compilationUnit: CompilationUnit, astRewrite: ASTRewrite,
 
       methodInvocation.arguments.asScala.asInstanceOf[mutable.Buffer[AnyRef]].+=(stringLiteral.asInstanceOf[StringLiteral])
 
-      listRewrite.insertBefore(methodInvocation, node, null)
+
+      val statement = node.getAST.newExpressionStatement(methodInvocation)
+
+
+      listRewrite.insertBefore(statement, node, null)
 
     }
 
@@ -146,7 +159,9 @@ class CustomASTVisitor(compilationUnit: CompilationUnit, astRewrite: ASTRewrite,
 
       methodInvocation.arguments.asScala.asInstanceOf[mutable.Buffer[AnyRef]].+=(stringLiteral.asInstanceOf[StringLiteral])
 
-      listRewrite.insertBefore(methodInvocation, node, null)
+      val statement = node.getAST.newExpressionStatement(methodInvocation)
+
+      listRewrite.insertBefore(statement, node, null)
 
     }
 
@@ -172,7 +187,9 @@ class CustomASTVisitor(compilationUnit: CompilationUnit, astRewrite: ASTRewrite,
 
       methodInvocation.arguments.asScala.asInstanceOf[mutable.Buffer[AnyRef]].+=(stringLiteral.asInstanceOf[StringLiteral])
 
-      listRewrite.insertBefore(methodInvocation, node, null)
+      val statement = node.getAST.newExpressionStatement(methodInvocation)
+
+      listRewrite.insertBefore(statement, node, null)
 
     }
 
@@ -196,9 +213,12 @@ class CustomASTVisitor(compilationUnit: CompilationUnit, astRewrite: ASTRewrite,
       val stringLiteral: StringLiteral = ast.newStringLiteral
       stringLiteral.setLiteralValue("Logging a return statement")
 
+
       methodInvocation.arguments.asScala.asInstanceOf[mutable.Buffer[AnyRef]].+=(stringLiteral.asInstanceOf[StringLiteral])
 
-      listRewrite.insertBefore(methodInvocation, node, null)
+      val statement = node.getAST.newExpressionStatement(methodInvocation)
+
+      listRewrite.insertBefore(statement, node, null)
 
     }
 

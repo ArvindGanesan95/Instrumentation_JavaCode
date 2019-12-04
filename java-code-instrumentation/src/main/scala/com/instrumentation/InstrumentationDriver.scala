@@ -24,6 +24,8 @@ object InstrumentationDriver extends LazyLogging {
     val edits = customASTVisitor.getASTRewrite.rewriteAST(document, null)
     edits.apply(document)
 
+    println(document.get)
+
     val instrumentedCompilationUnit = parse(document.get.toCharArray)
   }
 

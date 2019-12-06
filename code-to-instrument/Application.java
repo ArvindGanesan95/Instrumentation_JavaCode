@@ -30,6 +30,7 @@ public class Application {
         int m = 0;
 
         while (m < e) {
+            int a = 2;
             m++;
             add(a, b);
         }

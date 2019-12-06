@@ -14,7 +14,12 @@ object InstrumentationDriver extends LazyLogging {
   def main(args: Array[String]): Unit = {
 
     val sourceString = IOUtils
-      .toString(new FileInputStream(new File("./java-code-instrumentation/src/main/scala/com/instrumentation/code/Application.java")), "UTF-8")
+      .toString(new FileInputStream(new File("./code-to-instrument/Application.java")), "UTF-8")
+
+    val instrumentedAST = runInstrumentation(sourceString)
+  }
+
+  private def runInstrumentation(sourceString: String): CompilationUnit = {
 
     val compilationUnit = parse(sourceString.toCharArray)
     val customASTVisitor = new CustomASTVisitor(compilationUnit, ASTRewrite.create(compilationUnit.getAST), true)
@@ -24,12 +29,11 @@ object InstrumentationDriver extends LazyLogging {
     val edits = customASTVisitor.getASTRewrite.rewriteAST(document, null)
     edits.apply(document)
 
-    println(document.get)
-
-    val instrumentedCompilationUnit = parse(document.get.toCharArray)
+    parse(document.get.toCharArray)
   }
 
-  private def parse(sourceString: Array[Char]) = {
+
+  private def parse(sourceString: Array[Char]): CompilationUnit = {
 
     val astParser = ASTParser.newParser(AST.JLS8)
 

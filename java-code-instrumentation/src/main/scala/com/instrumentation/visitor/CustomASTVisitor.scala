@@ -1,5 +1,6 @@
 package com.instrumentation.visitor
 
+import com.instrumentation.utils.VariableDeclarationContext
 import com.typesafe.scalalogging.LazyLogging
 import org.apache.commons.lang3.StringUtils
 import org.eclipse.jdt.core.dom._
@@ -47,7 +48,7 @@ class CustomASTVisitor(compilationUnit: CompilationUnit, astRewrite: ASTRewrite,
       logger.info("Instrumenting method invocation with name : {} within parent {}", node.getName, node.getParent.getParent.getNodeType)
 
       val ast = node.getAST
-      val block = TypeResolver.getParentBlock(node)
+      val block = VisitorUtils.getParentBlock(node)
 
       if (node.getName.getIdentifier != "getLogger" && block.getNodeType != ASTNode.COMPILATION_UNIT && block != null) {
 
@@ -70,6 +71,7 @@ class CustomASTVisitor(compilationUnit: CompilationUnit, astRewrite: ASTRewrite,
 
 
         listRewrite.insertAt(statement, methodInvokedLine - blockStartLine - 2, null)
+
       }
     }
     true
@@ -100,6 +102,7 @@ class CustomASTVisitor(compilationUnit: CompilationUnit, astRewrite: ASTRewrite,
 
       val statement = node.getAST.newExpressionStatement(methodInvocation)
 
+      CustomASTVisitor.variableDeclarationContextList += VariableDeclarationContext(fragment.getName.toString, node.getParent.getParent, compilationUnit.getLineNumber(node.getStartPosition), fragment.getInitializer)
 
       listRewrite.insertAfter(statement, node, null)
 
@@ -218,6 +221,7 @@ class CustomASTVisitor(compilationUnit: CompilationUnit, astRewrite: ASTRewrite,
 
       val statement = node.getAST.newExpressionStatement(methodInvocation)
 
+
       listRewrite.insertBefore(statement, node, null)
 
     }
@@ -228,10 +232,16 @@ class CustomASTVisitor(compilationUnit: CompilationUnit, astRewrite: ASTRewrite,
 
   def getASTRewrite: ASTRewrite = astRewrite
 
+  def getVariableDeclarationContextList: mutable.ListBuffer[VariableDeclarationContext] = CustomASTVisitor.variableDeclarationContextList
+
 }
 
+object CustomASTVisitor {
 
-object TypeResolver {
+  private val variableDeclarationContextList = new mutable.ListBuffer[VariableDeclarationContext]()
+}
+
+object VisitorUtils {
 
   def getParentBlock(node: ASTNode): ASTNode = {
 

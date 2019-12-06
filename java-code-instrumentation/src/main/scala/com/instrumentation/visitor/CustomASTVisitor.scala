@@ -9,9 +9,10 @@ import org.eclipse.jdt.core.dom.rewrite.ASTRewrite
 import scala.collection.JavaConverters._
 import scala.collection.mutable
 
-
+// Class to visit AST nodes based on node type
 class CustomASTVisitor(compilationUnit: CompilationUnit, astRewrite: ASTRewrite, rewriteMode: Boolean) extends ASTVisitor with LazyLogging {
 
+  // Each of the block of code inserts a logging statement using ASTRewrite node.
   override def visit(node: MethodDeclaration): Boolean = {
 
     if (rewriteMode) {

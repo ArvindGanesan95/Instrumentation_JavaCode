@@ -3,9 +3,9 @@ package com.instrumentation.code;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Application {
+public class Sample1 {
 
-    private static Logger logger = LoggerFactory.getLogger(Application.class);
+    private static Logger logger = LoggerFactory.getLogger(Sample1.class);
 
     public static void main(String[] args) {
 
@@ -22,7 +22,7 @@ public class Application {
 
         for (int i = 0; i < a; i++) {
 
-            a = a + 1;
+            //a = a + 1;
             b = b - 1;
             add(a, b);
         }
@@ -30,7 +30,7 @@ public class Application {
         int m = 0;
 
         while (m < e) {
-            int a = 2;
+            //int a = 2;
             m++;
             add(a, b);
         }

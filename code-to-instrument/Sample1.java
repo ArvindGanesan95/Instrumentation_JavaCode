@@ -22,7 +22,6 @@ public class Sample1 {
 
         for (int i = 0; i < a; i++) {
 
-            //a = a + 1;
             b = b - 1;
             add(a, b);
         }
@@ -30,7 +29,6 @@ public class Sample1 {
         int m = 0;
 
         while (m < e) {
-            //int a = 2;
             m++;
             add(a, b);
         }

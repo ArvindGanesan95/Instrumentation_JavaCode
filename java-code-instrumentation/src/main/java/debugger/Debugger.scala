@@ -2,12 +2,14 @@ package debugger
 
 import java.io._
 import java.util
+
 import com.sun.jdi._
 import com.sun.jdi.connect.{IllegalConnectorArgumentsException, VMStartException}
 import com.sun.jdi.event.{BreakpointEvent, ClassPrepareEvent, EventSet}
+import com.typesafe.scalalogging.LazyLogging
 
 
-class Debugger(classToDebug:Class[_],lineNumber:Int,params:String,classPathParams:String) {
+class Debugger(classToDebug:Class[_],lineNumber:Int,params:String,classPathParams:String) extends LazyLogging {
 
   var vm:VirtualMachine = _
 
@@ -51,10 +53,10 @@ class Debugger(classToDebug:Class[_],lineNumber:Int,params:String,classPathParam
         // Get values of all variables that are visible and print
         val stackFrame = event.asInstanceOf[BreakpointEvent].thread.frame(0)
         visibleVariables = stackFrame.getValues(stackFrame.visibleVariables).asInstanceOf[util.Map[LocalVariable, Value]]
-        System.out.println("Local Variables =")
+        logger.info("Local Variables =")
         import scala.collection.JavaConversions._
         for (entry <- visibleVariables.entrySet) {
-         System.out.println("	" + entry.getKey.name + " = " + entry.getValue)
+         logger.info("	" + entry.getKey.name + " = " + entry.getValue)
           visibleVariables.put(entry.getKey,entry.getValue)
         }
           isBreakPointHit=true
@@ -65,7 +67,7 @@ class Debugger(classToDebug:Class[_],lineNumber:Int,params:String,classPathParam
     }
     catch {
       case e: VMDisconnectedException =>
-        System.out.println("VM is now disconnected.")
+        logger.error("VM is now disconnected.")
         return null
       case e: Exception =>
         e.printStackTrace()

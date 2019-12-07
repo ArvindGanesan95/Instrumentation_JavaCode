@@ -2,6 +2,7 @@ package com.instrumentation
 
 import java.io.{File, FileInputStream, PrintWriter}
 import java.nio.file.Paths
+
 import com.instrumentation.visitor.CustomASTVisitor
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
@@ -10,6 +11,7 @@ import org.apache.commons.io.IOUtils
 import org.eclipse.jdt.core.dom._
 import org.eclipse.jdt.core.dom.rewrite.ASTRewrite
 import org.eclipse.jface.text.Document
+
 import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
 
@@ -62,14 +64,19 @@ object InstrumentationDriver extends LazyLogging {
 
     // Block to instrument File and Write the instrumented file to disk
     var fileName: String = file1
-    var filePath = Paths.get("../", sourceFilesPrefix, fileName)
+
+    var filePath = if (System.getProperty("os.name").contains("Mac")) {
+      Paths.get("./", sourceFilesPrefix, fileName)
+    } else {
+      Paths.get("../", sourceFilesPrefix, fileName)
+    }
     var sourceString = IOUtils
       .toString(new FileInputStream(new File(filePath.toString)), "UTF-8")
 
     var document = runInstrumentation(sourceString)
     var refinedDocument: String = stripPackageName(document.get())
 
-    var NewFilePath = Paths.get(cwd, configObject.config.getString("InstrumentedFilesRootPath"), fileName).toString
+    var NewFilePath = Paths.get(cwd, "java-code-instrumentation"+ File.separator + "src" + File.separator + "main" + File.separator + "java" + File.separator, fileName).toString
     var pw = new PrintWriter(new File(NewFilePath))
     pw.write(refinedDocument)
     pw.close
@@ -81,7 +88,7 @@ object InstrumentationDriver extends LazyLogging {
     //Block to instrument file 2 and write to disk
 
     var fileName2 = file2
-    filePath = Paths.get("../", sourceFilesPrefix, fileName2)
+    filePath = Paths.get("././", sourceFilesPrefix, fileName2)
     sourceString = IOUtils
       .toString(new FileInputStream(new File(filePath.toString)), "UTF-8")
 
@@ -89,7 +96,7 @@ object InstrumentationDriver extends LazyLogging {
     refinedDocument = stripPackageName(document.get())
 
     // Write the instrumented file to disk
-    var NewFilePath2 = Paths.get(cwd, configObject.config.getString("InstrumentedFilesRootPath"), fileName2).toString
+    var NewFilePath2 = Paths.get(cwd, "java-code-instrumentation"+ File.separator + "src" + File.separator + "main" + File.separator + "java" + File.separator, fileName2).toString
     pw = new PrintWriter(new File(NewFilePath2))
     pw.write(refinedDocument)
     pw.close
@@ -98,21 +105,16 @@ object InstrumentationDriver extends LazyLogging {
     val variablesSet2 = customASTVisitor.getVariableDeclarationContextList
 
 
-    var scopeTable1:Map[String, String]=Map()
-    var scopeTable2:Map[String, String]=Map()
+    var scopeTable1: Map[String, String] = Map()
+    var scopeTable2: Map[String, String] = Map()
 
     // Get the Line Numbers for the assignment statements using AST
     val result = readLineByLine(NewFilePath)
     if (!result.isEmpty) {
       val classPathParams = filePaths + configObject.config.getString("ClassFilesPath")
-                val process: Process = new ProcessBuilder("javac","-cp",classPathParams ,"\""+NewFilePath+"\"").start
-                val exitCode = process.waitFor
+      val process: Process = new ProcessBuilder("javac", "-cp", classPathParams, "\"" + NewFilePath + "\"").start
+      val exitCode = process.waitFor
       // Spawn the instrumented code , go to the line number, get the value and insert it into the hash table
-
-      import java.util.concurrent.Future
-      import java.util.concurrent.TimeUnit
-      import java.util.concurrent.ExecutorService
-      import java.util.concurrent.Executors
       Thread.sleep(5000)
 
 
@@ -133,8 +135,8 @@ object InstrumentationDriver extends LazyLogging {
             val key = Iteratorkey.getKey
             val value = Iteratorkey.getValue
             val keyName = key.name()
-            val VariableLineNumber = Integer.parseInt(key.toString.split(":")(1))-1
-            scopeTable1+=(keyName->value.toString)
+            val VariableLineNumber = Integer.parseInt(key.toString.split(":")(1)) - 1
+            scopeTable1 += (keyName -> value.toString)
           }
         }
       }
@@ -149,7 +151,7 @@ object InstrumentationDriver extends LazyLogging {
       val classPathParams = filePaths + configObject.config.getString("ClassFilesPath")
       // Spawn the instrumented code , go to the line number, get the value and insert it into the hash table
       // Generate .class file for the instrumented java code. This is an input to JDI Debugger
-      val process: Process = new ProcessBuilder("javac","-cp",classPathParams ,"\""+NewFilePath2+"\"").start
+      val process: Process = new ProcessBuilder("javac", "-cp", classPathParams, "\"" + NewFilePath2 + "\"").start
       val exitCode = process.waitFor
       // Get the class name
       val cls: Class[_] = Class.forName(fileName2.split("\\.")(0))
@@ -169,8 +171,8 @@ object InstrumentationDriver extends LazyLogging {
             val key = Iteratorkey.getKey
             val value = Iteratorkey.getValue
             val keyName = key.name()
-            val VariableLineNumber = Integer.parseInt(key.toString.split(":")(1))-1
-            scopeTable2+=(keyName->value.toString)
+            val VariableLineNumber = Integer.parseInt(key.toString.split(":")(1)) - 1
+            scopeTable2 += (keyName -> value.toString)
           }
         }
       }
@@ -183,17 +185,17 @@ object InstrumentationDriver extends LazyLogging {
     case class VariableScopeDetails(variableName: String,
                                     scopeNode: ASTNode,
                                     variableDeclarationLocation: Int,
-                                    runTimeValue:String
+                                    runTimeValue: String
                                    )
 
     val finalScopeList1 = new mutable.ListBuffer[VariableScopeDetails]()
 
     // For every variable identified in AST, get its runtime value from JDI result
-    variablesSet1 foreach (x=>{
-      val variableName=x.variableName
+    variablesSet1 foreach (x => {
+      val variableName = x.variableName
 
-      if(scopeTable1.contains(variableName)) {
-        val runTimeValue=scopeTable1(variableName)
+      if (scopeTable1.contains(variableName)) {
+        val runTimeValue = scopeTable1(variableName)
         finalScopeList1.add(new VariableScopeDetails(x.variableName,
           x.scopeNode, x.variableDeclarationLocation, runTimeValue))
       }
@@ -201,11 +203,11 @@ object InstrumentationDriver extends LazyLogging {
 
     val finalScopeList2 = new mutable.ListBuffer[VariableScopeDetails]()
 
-    variablesSet2 foreach (x=>{
-      val variableName=x.variableName
+    variablesSet2 foreach (x => {
+      val variableName = x.variableName
 
-      if(scopeTable2.contains(variableName)) {
-        val runTimeValue=scopeTable2(variableName)
+      if (scopeTable2.contains(variableName)) {
+        val runTimeValue = scopeTable2(variableName)
         finalScopeList2.add(new VariableScopeDetails(x.variableName,
           x.scopeNode, x.variableDeclarationLocation, runTimeValue))
       }
@@ -224,7 +226,7 @@ object InstrumentationDriver extends LazyLogging {
   import java.nio.file.{Files, Paths}
 
   // Function to strip the package name and return the code
-  private def stripPackageName(str: String): String = {
+  def stripPackageName(str: String): String = {
     val stream = str.split("\n")
     var substring: String = ""
     stream.foldLeft(0)((i, x) => {
@@ -238,7 +240,7 @@ object InstrumentationDriver extends LazyLogging {
   }
 
   //Function to read the code line by line and get the line numbers where logging is used
-  private def readLineByLine(filePath: String): Option[ArrayBuffer[Int]] = {
+  def readLineByLine(filePath: String): Option[ArrayBuffer[Int]] = {
     val contentBuilder = new ArrayBuffer[Int]()
 
     try {
@@ -259,7 +261,7 @@ object InstrumentationDriver extends LazyLogging {
   }
 
   // Initialize AST parser and return a compilation unit for further processing
-  private def parse(sourceString: Array[Char]): CompilationUnit = {
+  def parse(sourceString: Array[Char]): CompilationUnit = {
 
     val astParser = ASTParser.newParser(AST.JLS8)
 
@@ -272,7 +274,7 @@ object InstrumentationDriver extends LazyLogging {
   }
 
   // Function to create ast, instrument it and return the ast document
-  private def runInstrumentation(sourceString: String): Document = {
+  def runInstrumentation(sourceString: String): Document = {
 
     val compilationUnit = parse(sourceString.toCharArray)
     customASTVisitor = new CustomASTVisitor(compilationUnit, ASTRewrite.create(compilationUnit.getAST), true)

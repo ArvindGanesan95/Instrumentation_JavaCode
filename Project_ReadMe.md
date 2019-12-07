@@ -18,7 +18,7 @@ ABHIJEET MOHANTY
 
 
 **Importing the project**
--   Open Intellij. Go to New->Project frome existing sources and choose the project
+- Open Intellij. Go to New->Project frome existing sources and choose the project
 - Build the project
 
 **Libraries Used**

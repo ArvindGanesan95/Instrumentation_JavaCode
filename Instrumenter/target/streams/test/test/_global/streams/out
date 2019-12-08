@@ -1,0 +1,10 @@
+[debug] Running TaskDef(InstrumentationDriverUnitTest, org.scalatest.tools.Framework$$anon$1@7cb46ffa, false, [SuiteSelector])
+[debug] Running TaskDef(CustomASTVisitorUnitTest, org.scalatest.tools.Framework$$anon$1@7cb46ffa, false, [SuiteSelector])
+[info] Run completed in 2 seconds, 795 milliseconds.
+[info] Total number of tests run: 4
+[info] Suites: completed 2, aborted 0
+[info] Tests: succeeded 4, failed 0, canceled 0, ignored 0, pending 0
+[info] All tests passed.
+[debug] Passed tests:
+[debug] 	CustomASTVisitorUnitTest
+[debug] 	InstrumentationDriverUnitTest

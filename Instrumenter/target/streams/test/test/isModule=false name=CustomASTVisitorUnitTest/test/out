@@ -1,0 +1,3 @@
+[info] CustomASTVisitorUnitTest:
+[info] - The visit method to traverse variable declaration statements should return all such values
+[info] - The getParentBlock method should return the enclosing block of a given AST node

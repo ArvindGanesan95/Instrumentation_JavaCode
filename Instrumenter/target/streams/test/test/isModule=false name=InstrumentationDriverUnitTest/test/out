@@ -1,0 +1,3 @@
+[info] InstrumentationDriverUnitTest:
+[info] - The readLineByLine method should return the logging occurrences in the form of an ArrayBuffer
+[info] - The stripPackageName method should remove the package declaration in the source code

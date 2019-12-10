@@ -1,41 +1,20 @@
-package com.instrumentation.code;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Sample1 {
+class Sample1{  
+private static Logger logger = LoggerFactory.getLogger(Sample2.class);
 
-    private static Logger logger = LoggerFactory.getLogger(Sample1.class);
-
-    public static void main(String[] args) {
-
-        if (args.length < 5) {
-            logger.error("There needs to 5 input arguments");
-            System.exit(-1);
-        }
-
-        int a = Integer.parseInt(args[0]);
-        int b = Integer.parseInt(args[1]);
-        int c = Integer.parseInt(args[2]);
-        int d = Integer.parseInt(args[3]);
-        int e = Integer.parseInt(args[4]);
-
-        for (int i = 0; i < a; i++) {
-
-            b = b - 1;
-            add(a, b);
-        }
-
-        int m = 0;
-
-        while (m < e) {
-            m++;
-            add(a, b);
-        }
-    }
-
-    public static int add(int a, int b) {
-        return a + b;
-    }
-
-}
+public static void main(String args[])  
+{    
+ int n5=0,n6=1,n4,i,count=10,k=8;    
+ System.out.print(n5+" "+n6);//printing 0 and 1    
+    
+ for(i=2;i<count;++i)//loop starts from 2 because 0 and 1 are already printed    
+ {    
+  n4=n5+n6;    
+  System.out.print(" "+n5);    
+  n5=n6;       
+ }    
+  
+}} 

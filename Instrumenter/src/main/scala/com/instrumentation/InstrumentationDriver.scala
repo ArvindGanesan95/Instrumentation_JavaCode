@@ -204,7 +204,7 @@ object InstrumentationDriver extends LazyLogging {
 //        val errorString = error.readLine
 //        println(errorString)
 
-        val file = new File(Paths.get("target","scala-2.12","classes").toUri)
+        val file = new File(Paths.get("target","scala-2.13","classes").toUri)
         val url: URL = file.toURI.toURL
         val urls = Array(url)
         val cl: ClassLoader = new URLClassLoader(urls)

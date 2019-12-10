@@ -36,7 +36,7 @@ class Debugger(classToDebug:Class[_], params:String, classPathParams:String) {
     classPrepareRequest.enable()
     var eventSet:EventSet = null
     var visibleVariables:util.Map[LocalVariable,Value] = new util.HashMap[LocalVariable,Value]()
-    try while ( { (eventSet = vm.eventQueue.remove(500)) != null  })
+    try while ( { (eventSet = vm.eventQueue.remove(1500)) != null  })
     {
       eventSet.forEach((event:Event)=>{
         /*

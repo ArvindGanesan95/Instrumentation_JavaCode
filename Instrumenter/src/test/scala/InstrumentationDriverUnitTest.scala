@@ -12,10 +12,11 @@ class InstrumentationDriverUnitTest extends FunSuite {
   } else {
     "../"
   }
-
+  val cwd = new File("").getAbsolutePath
+  val filePath=Paths.get(filePathPrefix,"Instrumenter","src","test","scala","code","Application.java");
   test("The readLineByLine method should return the logging occurrences in the form of an ArrayBuffer") {
 
-    val buffer = InstrumentationDriver.readLineByLine(filePathPrefix + "Instrumenter" + File.separator + "src" + File.separator + "test" + File.separator + "scala" + File.separator + "code" + File.separator +  "Application.java")
+    val buffer = InstrumentationDriver.readLineByLine(filePath.toString)
 
     assert(buffer.get.size === 6)
   }

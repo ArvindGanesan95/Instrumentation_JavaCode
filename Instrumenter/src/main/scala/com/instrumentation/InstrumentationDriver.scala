@@ -9,15 +9,16 @@ import java.util.Timer
 import com.instrumentation.visitor.CustomASTVisitor
 import com.sun.jdi.{LocalVariable, Value}
 import com.typesafe.config.ConfigFactory
-
 import debugger.Debugger
 import org.apache.commons.io.IOUtils
 import org.eclipse.jdt.core.dom._
 import org.eclipse.jdt.core.dom.rewrite.ASTRewrite
 import org.eclipse.jface.text.Document
-
 import java.nio.charset.StandardCharsets
 import java.nio.file.{Files, Paths}
+
+import com.typesafe.scalalogging.LazyLogging
+
 import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
 
@@ -26,12 +27,13 @@ object configObject {
   val config = ConfigFactory.load()
 }
 
-object InstrumentationDriver {
+object InstrumentationDriver extends LazyLogging {
   var customASTVisitor: CustomASTVisitor = null
 
   def main(args: Array[String]): Unit = {
 
 
+    logger.info("Starting the instrumentor")
     // Get the list of libraries used in the programs current classpath
     val list = System.getProperty("java.class.path").split(";")
     var isLogBackFound = false
@@ -296,6 +298,9 @@ object InstrumentationDriver {
 
   // Function to strip the package name and return the code
   def stripPackageName(str: String): String = {
+
+    logger.info("Stripping package name from source code")
+
     val stream = str.split("\r")
     var substring: String = ""
     stream.foldLeft(0)((i, x) => {
@@ -310,6 +315,11 @@ object InstrumentationDriver {
 
   //Function to read the code line by line and get the line numbers where logging is used
   def readLineByLine(filePath: String): Option[ArrayBuffer[Int]] = {
+
+
+    logger.info("Reading the code line by line to count no. of loggers in the code")
+
+
     val contentBuilder = new ArrayBuffer[Int]()
 
     try {
@@ -332,6 +342,8 @@ object InstrumentationDriver {
   // Initialize AST parser and return a compilation unit for further processing
   def parse(sourceString: Array[Char]): CompilationUnit = {
 
+    logger.info("Parsing the source string")
+
     val astParser = ASTParser.newParser(AST.JLS8)
 
     astParser.setKind(ASTParser.K_COMPILATION_UNIT)
@@ -344,6 +356,9 @@ object InstrumentationDriver {
 
   // Function to create ast, instrument it and return the ast document
   def runInstrumentation(sourceString: String): Document = {
+
+    logger.info("Running the instrumentation")
+
 
     val compilationUnit = parse(sourceString.toCharArray)
     customASTVisitor = new CustomASTVisitor(compilationUnit, ASTRewrite.create(compilationUnit.getAST), true)

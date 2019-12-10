@@ -85,12 +85,13 @@
         -   ClassFilesPath="target/scala-2.13/classes" - Defines location where .class files are generated and referred by JDI
 
 ## Unit Tests for Codebase
- - There are 3 unit tests
 
+- There are two test cases each of which test either listing of variable declarations and getting the parent block of some AST node
 
 ## Unit Tests for Instrumenter
-    - There are 3 unit tests
 
+- There are two test cases which checks whether the `stripPackage` method removes the `package` statement from a source code. 
+- The other test case - `readLineByLine` to check where loggers are used.
 
 
 ## Results

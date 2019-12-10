@@ -269,8 +269,7 @@ object InstrumentationDriver extends LazyLogging {
 
       if (scopeTable1.contains(variableName)) {
         val runTimeValue = scopeTable1(variableName)
-        finalScopeList1
-        finalScopeList1.addOne(new VariableScopeDetails(x.variableName,
+       finalScopeList1.addOne(new VariableScopeDetails(x.variableName,
           x.scopeNode, x.variableDeclarationLocation, runTimeValue))
       }
     })
@@ -301,7 +300,7 @@ object InstrumentationDriver extends LazyLogging {
 
     logger.info("Stripping package name from source code")
 
-    val stream = str.split("\r")
+    val stream = str.split("\r?\n")
     var substring: String = ""
     stream.foldLeft(0)((i, x) => {
       if (x.asInstanceOf[String].contains("package ")) {

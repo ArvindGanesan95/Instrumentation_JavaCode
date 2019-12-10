@@ -1,0 +1,27 @@
+import java.io.{File, FileInputStream}
+
+import com.instrumentation.InstrumentationDriver
+import org.apache.commons.io.IOUtils
+import org.scalatest.FunSuite
+
+class InstrumentationDriverUnitTest extends FunSuite {
+
+  test("The readLineByLine method should return the logging occurrences in the form of an ArrayBuffer") {
+
+    val buffer = InstrumentationDriver.readLineByLine("" + File.separator + "Instrumenter" + File.separator + "src" + File.separator + "test" + File.separator + "scala" + File.separator + "code" + File.separator +  "Application.java")
+
+    assert(buffer.get.size === 6)
+  }
+
+  test("The stripPackageName method should remove the package declaration in the source code") {
+
+    val sourceString: String = IOUtils
+      .toString(new FileInputStream(new File("" + File.separator + "Instrumenter" + File.separator + "src" + File.separator + "test" + File.separator + "scala" + File.separator + "code" + File.separator +  "Application.java")), "UTF-8")
+
+    val strippedSourceString = InstrumentationDriver.stripPackageName(sourceString)
+
+    assert(sourceString.contains("package"))
+    assert(!strippedSourceString.contains("package"))
+
+  }
+}

@@ -1,0 +1,93 @@
+2019-12-10 18:26:08 [pool-16-thread-5-ScalaTest-running-InstrumentationDriverUnitTest] INFO  InstrumentationDriver$:323 - Reading the code line by line to count no. of loggers in the code
+2019-12-10 18:26:08 [pool-16-thread-4] INFO  InstrumentationDriver$:348 - Parsing the source string
+2019-12-10 18:26:08 [pool-16-thread-5-ScalaTest-running-InstrumentationDriverUnitTest] INFO  InstrumentationDriver$:305 - Stripping package name from source code
+2019-12-10 18:26:09 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : getLogger within parent 23
+2019-12-10 18:26:09 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:20 - Instrumenting method declaration with name : main
+2019-12-10 18:26:09 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : info within parent 8
+2019-12-10 18:26:09 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : info within parent 8
+2019-12-10 18:26:09 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : error within parent 8
+2019-12-10 18:26:09 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : exit within parent 8
+2019-12-10 18:26:09 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : info within parent 8
+2019-12-10 18:26:09 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:85 - Instrumenting variable declaration statement within parent : int a=Integer.parseInt(args[0]);
+
+2019-12-10 18:26:09 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : parseInt within parent 60
+2019-12-10 18:26:09 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : info within parent 8
+2019-12-10 18:26:09 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:85 - Instrumenting variable declaration statement within parent : int b=Integer.parseInt(args[1]);
+
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : parseInt within parent 60
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : info within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : info within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : info within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : info within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : info within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : info within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:85 - Instrumenting variable declaration statement within parent : int c=Integer.parseInt(args[2]);
+
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : parseInt within parent 60
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : info within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:85 - Instrumenting variable declaration statement within parent : int d=Integer.parseInt(args[3]);
+
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : parseInt within parent 60
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : info within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:85 - Instrumenting variable declaration statement within parent : int e=Integer.parseInt(args[4]);
+
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : parseInt within parent 60
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : info within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : info within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:120 - Instrumenting a for statement
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : info within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : add within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:85 - Instrumenting variable declaration statement within parent : int m=0;
+
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : info within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : info within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:151 - Instrumenting a while statement
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : info within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : add within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:20 - Instrumenting method declaration with name : add
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : info within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : getLogger within parent 23
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:20 - Instrumenting method declaration with name : main
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : info within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : info within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : error within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : exit within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : info within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:85 - Instrumenting variable declaration statement within parent : int a=Integer.parseInt(args[0]);
+
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : parseInt within parent 60
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : info within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:85 - Instrumenting variable declaration statement within parent : int b=Integer.parseInt(args[1]);
+
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : parseInt within parent 60
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : info within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : info within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : info within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : info within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : info within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : info within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:85 - Instrumenting variable declaration statement within parent : int c=Integer.parseInt(args[2]);
+
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : parseInt within parent 60
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : info within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:85 - Instrumenting variable declaration statement within parent : int d=Integer.parseInt(args[3]);
+
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : parseInt within parent 60
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : info within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:85 - Instrumenting variable declaration statement within parent : int e=Integer.parseInt(args[4]);
+
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : parseInt within parent 60
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : info within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : info within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:120 - Instrumenting a for statement
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : info within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : add within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:85 - Instrumenting variable declaration statement within parent : int m=0;
+
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : info within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : info within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:151 - Instrumenting a while statement
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : info within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : add within parent 8
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:20 - Instrumenting method declaration with name : add
+2019-12-10 18:26:10 [pool-16-thread-4-ScalaTest-running-CustomASTVisitorUnitTest] INFO  CustomASTVisitor:49 - Instrumenting method invocation with name : info within parent 8

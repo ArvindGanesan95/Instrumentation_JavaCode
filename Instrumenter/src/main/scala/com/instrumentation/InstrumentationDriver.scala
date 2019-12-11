@@ -5,6 +5,9 @@ import java.net.{URL, URLClassLoader}
 import java.nio.file.{Files, Paths}
 import java.util
 import java.util.Timer
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
+
 
 import com.instrumentation.visitor.CustomASTVisitor
 import com.sun.jdi.{LocalVariable, Value}
@@ -28,6 +31,7 @@ object configObject {
 }
 
 object InstrumentationDriver extends LazyLogging {
+
   var customASTVisitor: CustomASTVisitor = null
 
   def main(args: Array[String]): Unit = {
@@ -371,3 +375,5 @@ object InstrumentationDriver extends LazyLogging {
   }
 
 }
+
+case class InstrumentationDriver()

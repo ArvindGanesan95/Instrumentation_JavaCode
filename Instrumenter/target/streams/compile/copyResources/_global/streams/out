@@ -1,2 +1,3 @@
 [debug] Copy resource mappings: 
 [debug] 	(G:\OOLE Course\test\courseproject\Instrumenter\src\main\resources\application.conf,G:\OOLE Course\test\courseproject\Instrumenter\target\scala-2.13\classes\application.conf)
+[debug] 	(G:\OOLE Course\test\courseproject\Instrumenter\src\main\resources\log4j2.xml,G:\OOLE Course\test\courseproject\Instrumenter\target\scala-2.13\classes\log4j2.xml)

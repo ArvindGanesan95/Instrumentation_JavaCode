@@ -2,15 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6855fb1c-b8a3-494a-aa86-ef0edc1301db" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/_global/dependencyPositions/_global/streams/update_cache_2.12/output_dsp" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/_global/dependencyPositions/_global/streams/update_cache_2.12/output_dsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/com/instrumentation/InstrumentationDriver.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com/instrumentation/InstrumentationDriver.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/Sample1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/Sample1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/Sample2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/Sample2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/com/instrumentation/InstrumentationDriver$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/com/instrumentation/InstrumentationDriver$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-reports/CustomASTVisitorUnitTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-reports/CustomASTVisitorUnitTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-reports/InstrumentationDriverUnitTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-reports/InstrumentationDriverUnitTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-reports/TEST-CustomASTVisitorUnitTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-reports/TEST-CustomASTVisitorUnitTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-reports/TEST-InstrumentationDriverUnitTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-reports/TEST-InstrumentationDriverUnitTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/com/instrumentation/InstrumentationDriver$VariableScopeDetails$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/com/instrumentation/InstrumentationDriver$VariableScopeDetails$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/com/instrumentation/InstrumentationDriver$VariableScopeDetails$2$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/com/instrumentation/InstrumentationDriver$VariableScopeDetails$2$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/com/instrumentation/InstrumentationDriver.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/com/instrumentation/InstrumentationDriver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/com/instrumentation/Sample1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/com/instrumentation/Sample1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/com/instrumentation/Sample2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/com/instrumentation/Sample2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/com/instrumentation/configObject$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/com/instrumentation/configObject$.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -166,7 +169,8 @@
       <workItem from="1575828263393" duration="9057000" />
       <workItem from="1575875046796" duration="587000" />
       <workItem from="1575933511717" duration="5973000" />
-      <workItem from="1576004877319" duration="1997000" />
+      <workItem from="1576004877319" duration="2084000" />
+      <workItem from="1576022757914" duration="1152000" />
     </task>
     <servers />
   </component>
@@ -191,22 +195,22 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="scala-line">
           <url>file://$PROJECT_DIR$/src/main/scala/com/instrumentation/InstrumentationDriver.scala</url>
-          <line>61</line>
+          <line>65</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="scala-line">
           <url>file://$PROJECT_DIR$/src/main/scala/com/instrumentation/InstrumentationDriver.scala</url>
-          <line>89</line>
+          <line>93</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="scala-line">
           <url>file://$PROJECT_DIR$/src/main/scala/com/instrumentation/InstrumentationDriver.scala</url>
-          <line>302</line>
+          <line>306</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="scala-line">
           <url>file://$PROJECT_DIR$/src/main/scala/com/instrumentation/InstrumentationDriver.scala</url>
-          <line>113</line>
+          <line>117</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="scala-line">
@@ -216,17 +220,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="scala-line">
           <url>file://$PROJECT_DIR$/src/main/scala/com/instrumentation/InstrumentationDriver.scala</url>
-          <line>147</line>
+          <line>151</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="scala-line">
           <url>file://$PROJECT_DIR$/src/main/scala/com/instrumentation/InstrumentationDriver.scala</url>
-          <line>326</line>
+          <line>330</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="scala-line">
           <url>file://$PROJECT_DIR$/src/main/scala/com/instrumentation/InstrumentationDriver.scala</url>
-          <line>311</line>
+          <line>315</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>

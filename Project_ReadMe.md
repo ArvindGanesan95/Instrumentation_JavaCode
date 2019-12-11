@@ -29,9 +29,8 @@ ABHIJEET MOHANTY
 - Logback - Logger used with Slf4j
 - Slf4j - Wrapper for logger
 - tools.jar :  Library for launching JVM instance. Its usually located in the 
-path: "C:\Program Files\Java\jdk1.8.0_131\lib\tools.jar". Sometimes, the project
-may not be able to find it and may report jdi modules not being found. 
-So having this jar in the project is necessary
+- path: "C:\Program Files\Java\jdk1.8.0_131\lib\tools.jar". Sometimes, the project
+  may not be able to find it and may report jdi modules not being found. So having this jar in the project is necessary
 
 **Running the program**
 - Run the command ***sbt clean compile test*** in the sbt shell to build and run the test cases.

@@ -1,5 +1,0 @@
-Hi Arvind, Abhijeet:
-You have done well. Your rewrites are done in the visitor callback methods and they are poorly documented. In addition, your documentation is rather skimpy. Despite these drawbacks you have implemented the main functionality and tested it. You have earned 23%. Congratulations!
-
-Thank you,
-Mark

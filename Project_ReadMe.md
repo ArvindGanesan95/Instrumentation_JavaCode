@@ -4,10 +4,6 @@ COURSE PROJECT
 A Scala Instrumenter for Java Code
 =====================================================
 
-##**TEAM**##
-ARVIND GANESAN <br>
-ABHIJEET MOHANTY 
-
 **Table of Contents**
 
 1. Importing the project

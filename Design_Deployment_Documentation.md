@@ -1,9 +1,5 @@
 # DESIGN & DEPLOYMENT DOCUMENT FOR SCALA INSTRUMENTER
 
-##**TEAM**##
-**Arvind Ganesan** <br>
-**Abhijeet Mohanty**
-
 ## Table of Contents
   - Required Tools and Frameworks
   - Dependencies Used
